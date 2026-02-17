@@ -1,0 +1,19 @@
+@font-face {
+    font-family: Arimo;
+    src: url("../public/Font/Arimo-Regular.ttf");
+}
+
+@font-face {
+    font-family: Praise;
+    src: url("../public/Font/Praise-Regular.ttf");
+}
+@font-face {
+    font-family: Playfair Display;
+    src: url("../public/Font/PlayfairDisplay-Regular.ttf");
+}
+@import "tailwindcss";
+@theme{
+    --font-Arimo: Arimo, sans-serif;
+    --font-Praise: Praise, sans-serif;
+      --font-Playfair: "Playfair Display", serif;
+}
