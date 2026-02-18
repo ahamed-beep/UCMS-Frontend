@@ -17,3 +17,31 @@
     --font-Praise: Praise, sans-serif;
       --font-Playfair: "Playfair Display", serif;
 }
+
+
+button,
+a,
+[role="button"],
+[onclick],
+input[type="submit"],
+input[type="button"],
+input[type="reset"],
+select,
+.clickable {
+  cursor: pointer;
+}
+
+
+button:hover,
+a:hover,
+[role="button"]:hover {
+  cursor: pointer;
+}
+
+
+button:disabled,
+input:disabled,
+select:disabled,
+[disabled] {
+  cursor: not-allowed;
+}

@@ -97,11 +97,11 @@ export default function ServicesPage() {
     <div className="min-h-screen bg-gradient-to-br from-white to-white py-16">
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
-        <div className="text-center mb-16">
-          <h1 className="text-5xl text-blue-900 font-bold mb-4">
-            Our <span className="text-orange-500 italic font-serif">Services</span>
+        <div className="text-center md:mb-10 mb-2">
+          <h1 className="md:text-5xl text-3xl text-[#002366] font-bold mb-2">
+            Our <span className="text-[#FF6B35] text-4xl md:text-6xl font-light font-Praise">Services</span>
           </h1>
-          <p className="text-gray-600 text-lg">
+          <p className="text-[#4A5565]  text-lg">
             Comprehensive support for your international education journey
           </p>
         </div>
@@ -112,10 +112,10 @@ export default function ServicesPage() {
             const isEven = index % 2 === 0;
 
             return (
-              <div key={service._id || index} className="grid md:grid-cols-2 gap-8 p-12">
+              <div key={service._id || index} className="grid md:grid-cols-2 gap-8 md:p-12 py-12 px-8">
                 {/* Left Side - Image or Content */}
                 {isEven ? (
-                  <div className="flex items-center justify-center">
+                  <div className="flex items-center  md:shadow-[0_10px_20px_-3px_rgba(0,0,0,0.1)] shadow-lg md:px-0 px-12 md:rounded-none rounded-xl justify-center">
                     {service.servicePageImage ? (
                       <img 
                         src={service.servicePageImage} 
@@ -130,8 +130,27 @@ export default function ServicesPage() {
                   </div>
                 ) : null}
 
+                  {!isEven ? (
+                  <div className="flex items-center  md:shadow-[0_10px_20px_-3px_rgba(0,0,0,0.1)] shadow-lg md:px-0 px-12 md:rounded-none rounded-xl justify-center">
+                    {service.servicePageImage ? (
+                      <img 
+                        src={service.servicePageImage} 
+                        alt={`${service.title} Illustration`} 
+                        className="w-full h-auto  object-contain"
+                      />
+                    ) : (
+                      <div className="w-full h-80 bg-gray-100 rounded-xl flex items-center justify-center">
+                        <span className="text-gray-400 text-lg">No Image Available</span>
+                      </div>
+                    )}
+                  </div>
+                ) : null}
+
                 {/* Content Side */}
                 <div className="flex flex-col justify-center">
+                  <div className=' md:justify-start justify-center flex' >
+
+                  
                   <div 
                     className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold mb-4 w-fit"
                     style={{
@@ -156,18 +175,19 @@ export default function ServicesPage() {
                     Service {String(service.serviceNumber || index + 1).padStart(2, '0')}
                       </div>
                   </div>
+                    </div>
 
-                  <h2 className="text-4xl font-bold text-blue-900 mb-2">
+                  <h2 className="text-4xl whitespace-nowrap font-bold text-[#002366] mb-2">
                     {service.title}
                   </h2>
                   
                   {service.subtitle && (
-                    <p className="text-blue-900 font-semibold text-lg mb-6">
+                    <p className="text-[#002366] font-bold text-lg mb-6">
                       {service.subtitle}
                     </p>
                   )}
 
-                  <p className="text-gray-600 mb-8 leading-relaxed">
+                  <p className="text-[#364153] mb-8 leading-relaxed">
                     {service.description}
                   </p>
 
@@ -180,8 +200,8 @@ export default function ServicesPage() {
                             <CircleCheckBig size={18} className='text-[#00A63E]' />
                           </div>
                           <div>
-                            <h3 className="font-bold text-gray-900">{bullet.title}</h3>
-                            <p className="text-gray-600 text-sm">{bullet.description}</p>
+                            <h3 className="font-bold text-[#002366]">{bullet.title}</h3>
+                            <p className="text-[#4A5565] text-sm">{bullet.description}</p>
                           </div>
                         </div>
                       ))}
@@ -190,21 +210,7 @@ export default function ServicesPage() {
                 </div>
 
                 {/* Right Side - Image (for odd index services) */}
-                {!isEven ? (
-                  <div className="flex items-center justify-center">
-                    {service.servicePageImage ? (
-                      <img 
-                        src={service.servicePageImage} 
-                        alt={`${service.title} Illustration`} 
-                        className="w-full h-auto object-contain"
-                      />
-                    ) : (
-                      <div className="w-full h-80 bg-gray-100 rounded-xl flex items-center justify-center">
-                        <span className="text-gray-400 text-lg">No Image Available</span>
-                      </div>
-                    )}
-                  </div>
-                ) : null}
+                
               </div>
             );
           })}
